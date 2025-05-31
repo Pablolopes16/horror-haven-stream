@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -19,6 +20,17 @@ export default {
 		},
 		extend: {
 			colors: {
+				// Cores da plataforma de terror
+				terror: {
+					dark: '#0a0f0a',
+					darker: '#050805',
+					green: '#1a2f1a',
+					'green-light': '#2a4f2a',
+					orange: '#ff4500',
+					'orange-dark': '#cc3300',
+					blood: '#8b0000',
+					fog: '#2c3e2c',
+				},
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
@@ -84,11 +96,27 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				// Animações para criar atmosfera de terror
+				'flicker': {
+					'0%, 100%': { opacity: '1' },
+					'50%': { opacity: '0.5' }
+				},
+				'glow': {
+					'0%, 100%': { boxShadow: '0 0 5px #ff4500' },
+					'50%': { boxShadow: '0 0 20px #ff4500' }
+				},
+				'float': {
+					'0%, 100%': { transform: 'translateY(0px)' },
+					'50%': { transform: 'translateY(-10px)' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'flicker': 'flicker 2s infinite',
+				'glow': 'glow 2s infinite',
+				'float': 'float 3s ease-in-out infinite'
 			}
 		}
 	},
