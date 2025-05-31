@@ -34,13 +34,13 @@ const MovieGrid: React.FC<MovieGridProps> = ({ title, movies, onPlayMovie }) => 
     <section className="py-12 px-4">
       <div className="container mx-auto">
         
-        {/* Título da seção */}
+        {/* Título da seção com estilo verde água */}
         <div className="mb-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-2 horror-text">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-2 aqua-text-glow">
             {title}
           </h2>
-          {/* Linha decorativa embaixo do título */}
-          <div className="w-24 h-1 bg-gradient-to-r from-terror-orange to-transparent rounded-full"></div>
+          {/* Linha decorativa embaixo do título com gradiente verde água */}
+          <div className="w-24 h-1 bg-gradient-to-r from-terror-aqua via-terror-aqua-light to-transparent rounded-full"></div>
         </div>
 
         {/* Grade responsiva de filmes */}
@@ -54,9 +54,9 @@ const MovieGrid: React.FC<MovieGridProps> = ({ title, movies, onPlayMovie }) => 
           ))}
         </div>
 
-        {/* Botão para ver mais filmes da categoria */}
+        {/* Botão para ver mais filmes da categoria com estilo verde água */}
         <div className="text-center mt-8">
-          <button className="bg-terror-green hover:bg-terror-green-light text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105 border border-terror-orange/30 hover:border-terror-orange">
+          <button className="bg-gradient-to-r from-terror-green to-terror-aqua-dark hover:from-terror-aqua hover:to-terror-aqua-light text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 hover:scale-105 border border-terror-aqua/30 hover:border-terror-aqua aqua-glow">
             Ver Mais em {title}
           </button>
         </div>

@@ -60,23 +60,23 @@ const MovieCard: React.FC<MovieCardProps> = ({ movie, onPlay }) => {
           }}
         />
 
-        {/* Overlay escuro que aparece no hover */}
-        <div className={`absolute inset-0 bg-gradient-to-t from-terror-darker via-terror-darker/50 to-transparent transition-opacity duration-300 ${
+        {/* Overlay escuro que aparece no hover com tons de verde água */}
+        <div className={`absolute inset-0 bg-gradient-to-t from-terror-darker via-terror-aqua/20 to-transparent transition-opacity duration-300 ${
           isHovered ? 'opacity-90' : 'opacity-0'
         }`} />
 
-        {/* Badge de classificação no canto superior direito */}
-        <div className="absolute top-2 right-2 bg-terror-orange/90 text-white text-xs font-bold px-2 py-1 rounded">
+        {/* Badge de classificação no canto superior direito com verde água */}
+        <div className="absolute top-2 right-2 bg-terror-aqua/90 text-white text-xs font-bold px-2 py-1 rounded border border-terror-aqua-light/50">
           {movie.rating}
         </div>
 
-        {/* Botão de play que aparece no hover */}
+        {/* Botão de play que aparece no hover com estilo verde água */}
         <div className={`absolute inset-0 flex items-center justify-center transition-all duration-300 ${
           isHovered ? 'opacity-100 scale-100' : 'opacity-0 scale-75'
         }`}>
           <button
             onClick={handlePlayClick}
-            className="bg-terror-orange hover:bg-terror-orange-dark text-white rounded-full p-4 transform transition-all duration-200 hover:scale-110 horror-glow"
+            className="bg-gradient-to-r from-terror-aqua to-terror-aqua-dark hover:from-terror-aqua-light hover:to-terror-aqua text-white rounded-full p-4 transform transition-all duration-200 hover:scale-110 aqua-glow border border-terror-aqua-light/30"
           >
             <Play className="h-6 w-6 fill-current" />
           </button>
@@ -87,16 +87,16 @@ const MovieCard: React.FC<MovieCardProps> = ({ movie, onPlay }) => {
           isHovered ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
         }`}>
           
-          {/* Título do filme */}
-          <h3 className="text-white font-bold text-lg mb-1 horror-text">
+          {/* Título do filme com glow verde água */}
+          <h3 className="text-white font-bold text-lg mb-1 aqua-text-glow">
             {movie.title}
           </h3>
           
           {/* Ano e gênero */}
           <div className="flex items-center space-x-2 text-sm text-gray-300 mb-2">
             <span>{movie.year}</span>
-            <span>•</span>
-            <span>{movie.genre}</span>
+            <span className="text-terror-aqua">•</span>
+            <span className="text-terror-aqua-light">{movie.genre}</span>
           </div>
           
           {/* Descrição do filme (truncada) */}
@@ -104,15 +104,20 @@ const MovieCard: React.FC<MovieCardProps> = ({ movie, onPlay }) => {
             {movie.description}
           </p>
         </div>
+
+        {/* Borda que aparece no hover com efeito verde água */}
+        <div className={`absolute inset-0 rounded-lg border-2 transition-all duration-300 ${
+          isHovered ? 'border-terror-aqua/60 shadow-[0_0_20px_rgba(0,206,209,0.4)]' : 'border-transparent'
+        }`} />
       </div>
 
       {/* Título visível sempre (fora do hover) */}
       <div className={`mt-3 transition-opacity duration-300 ${isHovered ? 'opacity-0' : 'opacity-100'}`}>
-        <h3 className="text-white font-semibold text-base truncate">
+        <h3 className="text-white font-semibold text-base truncate hover:text-terror-aqua transition-colors duration-300">
           {movie.title}
         </h3>
         <p className="text-gray-400 text-sm">
-          {movie.year} • {movie.genre}
+          {movie.year} • <span className="text-terror-aqua-light">{movie.genre}</span>
         </p>
       </div>
     </div>

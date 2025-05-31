@@ -5,45 +5,45 @@
 
 @layer base {
   :root {
-    /* Cores personalizadas para tema de terror */
-    --background: 10 15 10; /* Verde muito escuro */
+    /* Cores personalizadas com verde água dominante */
+    --background: 5 15 15; /* Verde água muito escuro */
     --foreground: 210 40% 98%; /* Texto claro */
 
-    --card: 15 20 15; /* Cards escuros */
+    --card: 8 20 20; /* Cards com tom verde água escuro */
     --card-foreground: 210 40% 98%;
 
-    --popover: 15 20 15;
+    --popover: 8 20 20;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 16 185% 51%; /* Laranja terror */
+    --primary: 178 100% 41%; /* Verde água como cor primária */
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 20 30 20; /* Verde musgo */
+    --secondary: 180 25% 25%; /* Verde água acinzentado */
     --secondary-foreground: 210 40% 98%;
 
-    --muted: 20 25 20;
+    --muted: 180 20% 20%;
     --muted-foreground: 215.4 16.3% 70%;
 
-    --accent: 20 30 20;
+    --accent: 180 30% 25%;
     --accent-foreground: 210 40% 98%;
 
-    --destructive: 0 84.2% 35%; /* Vermelho sangue */
+    --destructive: 0 84.2% 35%; /* Vermelho mantido para contraste */
     --destructive-foreground: 210 40% 98%;
 
-    --border: 25 35 25;
-    --input: 25 35 25;
-    --ring: 16 185% 51%;
+    --border: 180 35% 20%;
+    --input: 180 35% 20%;
+    --ring: 178 100% 41%;
 
     --radius: 0.5rem;
 
-    --sidebar-background: 10 15 10;
+    --sidebar-background: 5 15 15;
     --sidebar-foreground: 210 40% 90%;
-    --sidebar-primary: 16 185% 51%;
+    --sidebar-primary: 178 100% 41%;
     --sidebar-primary-foreground: 210 40% 98%;
-    --sidebar-accent: 20 30 20;
+    --sidebar-accent: 180 25% 25%;
     --sidebar-accent-foreground: 210 40% 98%;
-    --sidebar-border: 25 35 25;
-    --sidebar-ring: 16 185% 51%;
+    --sidebar-border: 180 35% 20%;
+    --sidebar-ring: 178 100% 41%;
   }
 }
 
@@ -54,57 +54,128 @@
 
   body {
     @apply bg-terror-dark text-foreground;
-    /* Gradient de fundo atmosférico */
-    background: linear-gradient(135deg, #0a0f0a 0%, #1a2f1a 50%, #0a0f0a 100%);
+    /* Gradient de fundo com verde água */
+    background: linear-gradient(135deg, #0a1515 0%, #1a3535 30%, #0f2020 70%, #0a1515 100%);
     min-height: 100vh;
   }
 
-  /* Estilos personalizados para atmosfera de terror */
+  /* Estilos personalizados para atmosfera verde água */
   .horror-text {
-    text-shadow: 0 0 10px rgba(255, 69, 0, 0.5);
+    text-shadow: 0 0 15px rgba(0, 206, 209, 0.6), 0 0 30px rgba(127, 255, 212, 0.4);
   }
 
-  .horror-glow {
-    box-shadow: 0 0 20px rgba(255, 69, 0, 0.3);
+  .aqua-glow {
+    box-shadow: 
+      0 0 20px rgba(0, 206, 209, 0.4),
+      0 0 40px rgba(64, 224, 208, 0.3),
+      inset 0 0 20px rgba(127, 255, 212, 0.1);
+  }
+
+  .aqua-text-glow {
+    text-shadow: 
+      0 0 10px #00CED1,
+      0 0 20px #40E0D0,
+      0 0 30px #7FFFD4;
   }
 
   .horror-card {
-    background: linear-gradient(145deg, rgba(26, 47, 26, 0.8), rgba(10, 15, 10, 0.9));
+    background: linear-gradient(145deg, 
+      rgba(26, 53, 53, 0.8), 
+      rgba(10, 21, 21, 0.9),
+      rgba(15, 32, 32, 0.8)
+    );
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 69, 0, 0.2);
+    border: 1px solid rgba(0, 206, 209, 0.3);
+    box-shadow: 
+      0 0 15px rgba(0, 206, 209, 0.2),
+      inset 0 0 20px rgba(127, 255, 212, 0.05);
   }
 
-  /* Scrollbar personalizada */
+  /* Scrollbar com verde água */
   ::-webkit-scrollbar {
     width: 8px;
   }
 
   ::-webkit-scrollbar-track {
-    background: #1a2f1a;
+    background: #1a3535;
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #ff4500;
+    background: linear-gradient(180deg, #00CED1, #008B8B);
     border-radius: 4px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: #cc3300;
+    background: linear-gradient(180deg, #40E0D0, #00CED1);
   }
 }
 
-/* Utilitários personalizados */
+/* Utilitários personalizados com verde água */
 @layer utilities {
-  .text-terror-glow {
-    text-shadow: 0 0 10px currentColor;
+  .text-aqua-glow {
+    color: #00CED1;
+    text-shadow: 
+      0 0 10px currentColor,
+      0 0 20px #40E0D0;
   }
 
-  .bg-terror-gradient {
-    background: linear-gradient(135deg, #0a0f0a 0%, #1a2f1a 50%, #0a0f0a 100%);
+  .bg-terror-aqua-gradient {
+    background: linear-gradient(135deg, 
+      #0a1515 0%, 
+      #1a3535 25%, 
+      #0f2020 50%, 
+      #1a3535 75%, 
+      #0a1515 100%
+    );
   }
 
-  .border-terror-glow {
-    border-color: rgba(255, 69, 0, 0.5);
-    box-shadow: 0 0 10px rgba(255, 69, 0, 0.3);
+  .border-aqua-glow {
+    border-color: rgba(0, 206, 209, 0.6);
+    box-shadow: 
+      0 0 15px rgba(0, 206, 209, 0.3),
+      0 0 30px rgba(64, 224, 208, 0.2);
   }
+
+  .aqua-shimmer {
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(127, 255, 212, 0.2),
+      transparent
+    );
+    animation: shimmer 2s infinite;
+  }
+
+  @keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+}
+
+/* Efeitos especiais com verde água */
+.aqua-ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.aqua-ripple::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle, 
+    rgba(127, 255, 212, 0.4) 0%, 
+    rgba(64, 224, 208, 0.2) 50%, 
+    transparent 100%
+  );
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+
+.aqua-ripple:hover::before {
+  width: 300px;
+  height: 300px;
 }
