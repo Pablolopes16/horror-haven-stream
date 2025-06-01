@@ -1,6 +1,6 @@
-
 import React, { useState } from 'react';
 import { Search, User, Menu, X } from 'lucide-react';
+import LogoProcessor from './LogoProcessor';
 
 // Componente Header - Barra de navegação principal da plataforma
 const Header = () => {
@@ -26,13 +26,9 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           
-          {/* Logo oficial da CineFlow */}
+          {/* Logo oficial da CineFlow com processamento de fundo */}
           <div className="flex items-center">
-            <img 
-              src="/lovable-uploads/68e7f2cf-8512-45ad-b59d-892dffc832a8.png" 
-              alt="CineFlow Logo" 
-              className="h-12 w-auto aqua-glow hover:animate-aqua-pulse transition-all duration-300"
-            />
+            <LogoProcessor />
           </div>
 
           {/* Navegação desktop - oculta em telas pequenas */}

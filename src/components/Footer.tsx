@@ -1,6 +1,6 @@
-
 import React from 'react';
 import { Facebook, Instagram, Twitter } from 'lucide-react';
+import LogoProcessor from './LogoProcessor';
 
 // Componente Footer - Rodapé da plataforma
 const Footer = () => {
@@ -27,11 +27,7 @@ const Footer = () => {
           {/* Coluna 1: Logo e descrição */}
           <div className="space-y-4">
             <div className="flex items-center">
-              <img 
-                src="/lovable-uploads/68e7f2cf-8512-45ad-b59d-892dffc832a8.png" 
-                alt="CineFlow Logo" 
-                className="h-16 w-auto aqua-glow"
-              />
+              <LogoProcessor />
             </div>
             <p className="text-gray-400 leading-relaxed">
               A plataforma de streaming interativo que revoluciona 

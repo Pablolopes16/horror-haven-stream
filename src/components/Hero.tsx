@@ -1,6 +1,6 @@
-
 import React from 'react';
 import { Play } from 'lucide-react';
+import LogoProcessor from './LogoProcessor';
 
 // Componente Hero - Seção principal que destaca o filme em evidência
 const Hero = () => {
@@ -35,13 +35,11 @@ const Hero = () => {
       <div className="relative z-10 container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center">
           
-          {/* Logo oficial do CineFlow com efeitos */}
+          {/* Logo oficial do CineFlow com efeitos e fundo removido */}
           <div className="mb-8 animate-float">
-            <img 
-              src="/lovable-uploads/68e7f2cf-8512-45ad-b59d-892dffc832a8.png" 
-              alt="CineFlow Logo" 
-              className="h-32 md:h-40 w-auto mx-auto mb-6 aqua-glow animate-aqua-pulse filter drop-shadow-2xl"
-            />
+            <div className="h-32 md:h-40 w-auto mx-auto mb-6 flex justify-center">
+              <LogoProcessor />
+            </div>
           </div>
 
           {/* Tagline principal com efeito verde água */}
