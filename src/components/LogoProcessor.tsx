@@ -14,10 +14,10 @@ const LogoProcessor = () => {
     setError(null);
     
     try {
-      console.log('Iniciando processamento da nova logo...');
+      console.log('Iniciando processamento da logo...');
       
-      // Carregar a nova logo
-      const response = await fetch('/lovable-uploads/eb326d5f-4b0f-47ad-9124-6b73717c5147.png');
+      // Carregar a logo original
+      const response = await fetch('/lovable-uploads/68e7f2cf-8512-45ad-b59d-892dffc832a8.png');
       const blob = await response.blob();
       
       // Converter para elemento de imagem
@@ -30,9 +30,9 @@ const LogoProcessor = () => {
       const url = URL.createObjectURL(processedBlob);
       setProcessedLogoUrl(url);
       
-      console.log('Nova logo processada com sucesso!');
+      console.log('Logo processada com sucesso!');
     } catch (err) {
-      console.error('Erro ao processar nova logo:', err);
+      console.error('Erro ao processar logo:', err);
       setError('Falha ao processar a logo. Usando versão original.');
     } finally {
       setIsProcessing(false);
@@ -45,7 +45,7 @@ const LogoProcessor = () => {
   }, []);
 
   // Renderizar logo (processada ou original)
-  const logoSrc = processedLogoUrl || '/lovable-uploads/eb326d5f-4b0f-47ad-9124-6b73717c5147.png';
+  const logoSrc = processedLogoUrl || '/lovable-uploads/68e7f2cf-8512-45ad-b59d-892dffc832a8.png';
 
   return (
     <div className="relative">
