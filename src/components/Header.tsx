@@ -1,5 +1,7 @@
+
 import React, { useState } from 'react';
 import { Search, User, Menu, X } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import LogoProcessor from './LogoProcessor';
 
 // Componente Header - Barra de navegação principal da plataforma
@@ -28,7 +30,9 @@ const Header = () => {
           
           {/* Logo oficial da CineFlow com processamento de fundo */}
           <div className="flex items-center">
-            <LogoProcessor />
+            <Link to="/">
+              <LogoProcessor />
+            </Link>
           </div>
 
           {/* Navegação desktop - oculta em telas pequenas */}
@@ -71,9 +75,12 @@ const Header = () => {
           {/* Área do usuário e menu mobile */}
           <div className="flex items-center space-x-4">
             {/* Ícone do usuário - apenas desktop */}
-            <button className="hidden md:block text-white hover:text-terror-aqua transition-colors">
+            <Link 
+              to="/login"
+              className="hidden md:block text-white hover:text-terror-aqua transition-colors"
+            >
               <User className="h-6 w-6" />
-            </button>
+            </Link>
 
             {/* Botão do menu mobile */}
             <button
@@ -120,9 +127,9 @@ const Header = () => {
                 <a href="#categorias" className="text-white hover:text-terror-aqua transition-colors font-medium py-2">
                   Categorias
                 </a>
-                <a href="#perfil" className="text-white hover:text-terror-aqua transition-colors font-medium py-2">
-                  Meu Perfil
-                </a>
+                <Link to="/login" className="text-white hover:text-terror-aqua transition-colors font-medium py-2">
+                  Login
+                </Link>
               </nav>
             </div>
           </div>
