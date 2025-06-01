@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Facebook, Instagram, Twitter, Film } from 'lucide-react';
+import { Facebook, Instagram, Twitter } from 'lucide-react';
 
 // Componente Footer - Rodapé da plataforma
 const Footer = () => {
@@ -26,12 +26,12 @@ const Footer = () => {
           
           {/* Coluna 1: Logo e descrição */}
           <div className="space-y-4">
-            <div className="flex items-center space-x-2">
-              <Film className="h-8 w-8 text-terror-orange" />
-              <h3 className="text-2xl font-bold">
-                <span className="text-terror-orange">CINE</span>
-                <span className="text-white">FLOW</span>
-              </h3>
+            <div className="flex items-center">
+              <img 
+                src="/lovable-uploads/68e7f2cf-8512-45ad-b59d-892dffc832a8.png" 
+                alt="CineFlow Logo" 
+                className="h-16 w-auto aqua-glow"
+              />
             </div>
             <p className="text-gray-400 leading-relaxed">
               A plataforma de streaming interativo que revoluciona 
@@ -43,19 +43,19 @@ const Footer = () => {
             <div className="flex space-x-4 pt-4">
               <button 
                 onClick={() => handleLinkClick('facebook')}
-                className="text-gray-400 hover:text-terror-orange transition-colors duration-300"
+                className="text-gray-400 hover:text-terror-aqua transition-colors duration-300"
               >
                 <Facebook className="h-6 w-6" />
               </button>
               <button 
                 onClick={() => handleLinkClick('instagram')}
-                className="text-gray-400 hover:text-terror-orange transition-colors duration-300"
+                className="text-gray-400 hover:text-terror-aqua transition-colors duration-300"
               >
                 <Instagram className="h-6 w-6" />
               </button>
               <button 
                 onClick={() => handleLinkClick('twitter')}
-                className="text-gray-400 hover:text-terror-orange transition-colors duration-300"
+                className="text-gray-400 hover:text-terror-aqua transition-colors duration-300"
               >
                 <Twitter className="h-6 w-6" />
               </button>
@@ -69,7 +69,7 @@ const Footer = () => {
               <li>
                 <button 
                   onClick={() => handleLinkClick('inicio')}
-                  className="text-gray-400 hover:text-terror-orange transition-colors duration-300 text-left"
+                  className="text-gray-400 hover:text-terror-aqua transition-colors duration-300 text-left"
                 >
                   Início
                 </button>
@@ -77,7 +77,7 @@ const Footer = () => {
               <li>
                 <button 
                   onClick={() => handleLinkClick('filmes')}
-                  className="text-gray-400 hover:text-terror-orange transition-colors duration-300 text-left"
+                  className="text-gray-400 hover:text-terror-aqua transition-colors duration-300 text-left"
                 >
                   Catálogo de Filmes
                 </button>
@@ -85,7 +85,7 @@ const Footer = () => {
               <li>
                 <button 
                   onClick={() => handleLinkClick('series')}
-                  className="text-gray-400 hover:text-terror-orange transition-colors duration-300 text-left"
+                  className="text-gray-400 hover:text-terror-aqua transition-colors duration-300 text-left"
                 >
                   Séries Interativas
                 </button>
@@ -93,7 +93,7 @@ const Footer = () => {
               <li>
                 <button 
                   onClick={() => handleLinkClick('categorias')}
-                  className="text-gray-400 hover:text-terror-orange transition-colors duration-300 text-left"
+                  className="text-gray-400 hover:text-terror-aqua transition-colors duration-300 text-left"
                 >
                   Categorias
                 </button>
@@ -101,7 +101,7 @@ const Footer = () => {
               <li>
                 <button 
                   onClick={() => handleLinkClick('novidades')}
-                  className="text-gray-400 hover:text-terror-orange transition-colors duration-300 text-left"
+                  className="text-gray-400 hover:text-terror-aqua transition-colors duration-300 text-left"
                 >
                   Novidades
                 </button>
@@ -116,7 +116,7 @@ const Footer = () => {
               <li>
                 <button 
                   onClick={() => handleLinkClick('ajuda')}
-                  className="text-gray-400 hover:text-terror-orange transition-colors duration-300 text-left"
+                  className="text-gray-400 hover:text-terror-aqua transition-colors duration-300 text-left"
                 >
                   Central de Ajuda
                 </button>
@@ -124,7 +124,7 @@ const Footer = () => {
               <li>
                 <button 
                   onClick={() => handleLinkClick('contato')}
-                  className="text-gray-400 hover:text-terror-orange transition-colors duration-300 text-left"
+                  className="text-gray-400 hover:text-terror-aqua transition-colors duration-300 text-left"
                 >
                   Fale Conosco
                 </button>
@@ -132,7 +132,7 @@ const Footer = () => {
               <li>
                 <button 
                   onClick={() => handleLinkClick('termos')}
-                  className="text-gray-400 hover:text-terror-orange transition-colors duration-300 text-left"
+                  className="text-gray-400 hover:text-terror-aqua transition-colors duration-300 text-left"
                 >
                   Termos de Uso
                 </button>
@@ -140,7 +140,7 @@ const Footer = () => {
               <li>
                 <button 
                   onClick={() => handleLinkClick('privacidade')}
-                  className="text-gray-400 hover:text-terror-orange transition-colors duration-300 text-left"
+                  className="text-gray-400 hover:text-terror-aqua transition-colors duration-300 text-left"
                 >
                   Política de Privacidade
                 </button>
@@ -148,7 +148,7 @@ const Footer = () => {
               <li>
                 <button 
                   onClick={() => handleLinkClick('assinatura')}
-                  className="text-gray-400 hover:text-terror-orange transition-colors duration-300 text-left"
+                  className="text-gray-400 hover:text-terror-aqua transition-colors duration-300 text-left"
                 >
                   Gerenciar Assinatura
                 </button>
@@ -168,12 +168,12 @@ const Footer = () => {
               <input
                 type="email"
                 placeholder="Seu melhor email"
-                className="w-full bg-terror-green/30 border border-terror-green text-white placeholder-gray-400 px-4 py-2 rounded-lg focus:outline-none focus:border-terror-orange transition-colors"
+                className="w-full bg-terror-green/30 border border-terror-green text-white placeholder-gray-400 px-4 py-2 rounded-lg focus:outline-none focus:border-terror-aqua transition-colors"
                 required
               />
               <button
                 type="submit"
-                className="w-full bg-terror-orange hover:bg-terror-orange-dark text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-300"
+                className="w-full bg-terror-aqua hover:bg-terror-aqua-dark text-white font-semibold py-2 px-4 rounded-lg transition-colors duration-300"
               >
                 Inscrever-se
               </button>
@@ -195,13 +195,13 @@ const Footer = () => {
             <div className="flex space-x-6 text-sm">
               <button 
                 onClick={() => handleLinkClick('cookies')}
-                className="text-gray-400 hover:text-terror-orange transition-colors duration-300"
+                className="text-gray-400 hover:text-terror-aqua transition-colors duration-300"
               >
                 Política de Cookies
               </button>
               <button 
                 onClick={() => handleLinkClick('acessibilidade')}
-                className="text-gray-400 hover:text-terror-orange transition-colors duration-300"
+                className="text-gray-400 hover:text-terror-aqua transition-colors duration-300"
               >
                 Acessibilidade
               </button>
