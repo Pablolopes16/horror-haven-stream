@@ -110,7 +110,7 @@ const Login = () => {
             {/* Botão Entrar */}
             <Button
               type="submit"
-              className="w-full bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white font-bold py-3 text-lg transition-all duration-300 transform hover:scale-105"
+              className="w-full bg-gradient-to-r from-terror-orange to-terror-orange-dark hover:from-terror-orange-dark hover:to-terror-orange text-white font-bold py-3 text-lg transition-all duration-300 transform hover:scale-105"
             >
               Entrar
             </Button>
