@@ -1,67 +1,23 @@
 
 import React, { useState, useEffect } from 'react';
-import { removeBackground, loadImage } from '../utils/backgroundRemoval';
 
 // Componente para processar a logo e remover o fundo
 const LogoProcessor = () => {
   const [isProcessing, setIsProcessing] = useState(false);
-  const [processedLogoUrl, setProcessedLogoUrl] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
 
-  // Função para processar a logo automaticamente quando o componente monta
-  const processLogo = async () => {
-    setIsProcessing(true);
-    setError(null);
-    
-    try {
-      console.log('Iniciando processamento da logo...');
-      
-      // Carregar a nova logo
-      const response = await fetch('/lovable-uploads/ab9321b7-3c7d-47d3-98c6-1e13db86afe6.png');
-      const blob = await response.blob();
-      
-      // Converter para elemento de imagem
-      const imageElement = await loadImage(blob);
-      
-      // Remover o fundo
-      const processedBlob = await removeBackground(imageElement);
-      
-      // Criar URL para a imagem processada
-      const url = URL.createObjectURL(processedBlob);
-      setProcessedLogoUrl(url);
-      
-      console.log('Logo processada com sucesso!');
-    } catch (err) {
-      console.error('Erro ao processar logo:', err);
-      setError('Falha ao processar a logo. Usando versão original.');
-    } finally {
-      setIsProcessing(false);
-    }
-  };
-
-  // Processar logo quando o componente monta
-  useEffect(() => {
-    processLogo();
-  }, []);
-
-  // Renderizar logo (processada ou original)
-  const logoSrc = processedLogoUrl || '/lovable-uploads/ab9321b7-3c7d-47d3-98c6-1e13db86afe6.png';
+  // Renderizar logo diretamente sem processamento
+  const logoSrc = '/lovable-uploads/ab9321b7-3c7d-47d3-98c6-1e13db86afe6.png';
 
   return (
     <div className="relative">
-      {isProcessing && (
-        <div className="absolute inset-0 bg-terror-aqua/20 rounded-lg flex items-center justify-center">
-          <div className="text-terror-aqua text-sm">Processando logo...</div>
-        </div>
-      )}
-      
       <img 
         src={logoSrc}
         alt="CineFlow Logo" 
-        className="h-12 w-auto aqua-glow hover:animate-aqua-pulse transition-all duration-300"
+        className="h-16 w-auto aqua-glow hover:animate-aqua-pulse transition-all duration-300"
         style={{ 
-          filter: processedLogoUrl ? 'none' : 'brightness(1.2) contrast(1.1)',
-          background: processedLogoUrl ? 'transparent' : 'none'
+          filter: 'brightness(1.3) contrast(1.2) drop-shadow(0 0 10px rgba(79, 209, 197, 0.5))',
+          background: 'transparent'
         }}
       />
       
