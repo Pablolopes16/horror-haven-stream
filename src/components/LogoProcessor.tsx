@@ -14,10 +14,11 @@ const LogoProcessor = () => {
       <img 
         src={logoSrc}
         alt="CineFlow Logo" 
-        className="h-16 w-auto aqua-glow hover:animate-aqua-pulse transition-all duration-300"
+        className="h-20 w-auto aqua-glow hover:animate-aqua-pulse transition-all duration-300"
         style={{ 
-          filter: 'brightness(1.3) contrast(1.2) drop-shadow(0 0 10px rgba(79, 209, 197, 0.5))',
-          background: 'transparent'
+          filter: 'brightness(2) contrast(3) saturate(0) invert(1) drop-shadow(0 0 15px rgba(79, 209, 197, 0.8))',
+          background: 'transparent',
+          mixBlendMode: 'screen'
         }}
       />
       
