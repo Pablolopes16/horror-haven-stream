@@ -14,7 +14,7 @@ const LogoProcessor = () => {
       <img 
         src={logoSrc}
         alt="CineFlow Logo" 
-        className="h-24 w-auto aqua-glow hover:animate-aqua-pulse transition-all duration-300"
+        className="h-32 w-auto hover:animate-aqua-pulse transition-all duration-300"
         style={{ 
           filter: 'brightness(1.3) contrast(1.2) drop-shadow(0 0 10px rgba(79, 209, 197, 0.5))',
           background: 'transparent'
