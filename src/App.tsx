@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import LoginPage from "./pages/Login";
 import ProfileSelectionPage from "./pages/ProfileSelection";
+import RegistrationPage from "./pages/Registration";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();

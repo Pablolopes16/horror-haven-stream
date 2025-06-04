@@ -190,7 +190,7 @@ const Registration = () => {
               <Checkbox
                 id="privacy"
                 checked={acceptPrivacy}
-                onCheckedChange={setAcceptPrivacy}
+                onCheckedChange={(checked) => setAcceptPrivacy(checked === true)}
                 className="data-[state=checked]:bg-terror-aqua data-[state=checked]:border-terror-aqua"
               />
               <Label 
