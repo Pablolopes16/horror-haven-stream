@@ -17,22 +17,22 @@ const defaultProfiles: UserProfile[] = [
   {
     id: '1',
     name: 'Fantasma',
-    avatar: '/lovable-uploads/ed8ea89e-8860-4c25-b651-d1ece3956d34.png'
+    avatar: '/lovable-uploads/18b90af2-24d1-49c9-b277-3a3f360b4ec8.png'
   },
   {
     id: '2',
     name: 'Frankenstein',
-    avatar: '/lovable-uploads/ed8ea89e-8860-4c25-b651-d1ece3956d34.png'
+    avatar: '/lovable-uploads/18b90af2-24d1-49c9-b277-3a3f360b4ec8.png'
   },
   {
     id: '3',
     name: 'Vampiro',
-    avatar: '/lovable-uploads/ed8ea89e-8860-4c25-b651-d1ece3956d34.png'
+    avatar: '/lovable-uploads/18b90af2-24d1-49c9-b277-3a3f360b4ec8.png'
   },
   {
     id: '4',
     name: 'Abóbora',
-    avatar: '/lovable-uploads/ed8ea89e-8860-4c25-b651-d1ece3956d34.png'
+    avatar: '/lovable-uploads/18b90af2-24d1-49c9-b277-3a3f360b4ec8.png'
   }
 ];
 
@@ -64,36 +64,34 @@ const ProfileSelection = () => {
 
   // Função para extrair avatar específico da imagem baseado no ID
   const getAvatarStyle = (profileId: string) => {
-    const baseStyle = "w-20 h-20 bg-cover bg-center bg-no-repeat";
+    const baseStyle = {
+      width: '80px',
+      height: '80px',
+      backgroundImage: `url(/lovable-uploads/18b90af2-24d1-49c9-b277-3a3f360b4ec8.png)`,
+      backgroundSize: '400px 80px',
+      backgroundRepeat: 'no-repeat'
+    };
     
     switch(profileId) {
       case '1': // Fantasma
         return {
           ...baseStyle,
-          backgroundImage: `url(/lovable-uploads/ed8ea89e-8860-4c25-b651-d1ece3956d34.png)`,
-          backgroundPosition: '-10px -180px',
-          backgroundSize: '500px 400px'
+          backgroundPosition: '0px 0px'
         };
       case '2': // Frankenstein  
         return {
           ...baseStyle,
-          backgroundImage: `url(/lovable-uploads/ed8ea89e-8860-4c25-b651-d1ece3956d34.png)`,
-          backgroundPosition: '-110px -180px', 
-          backgroundSize: '500px 400px'
+          backgroundPosition: '-80px 0px'
         };
       case '3': // Vampiro
         return {
           ...baseStyle,
-          backgroundImage: `url(/lovable-uploads/ed8ea89e-8860-4c25-b651-d1ece3956d34.png)`,
-          backgroundPosition: '-210px -180px',
-          backgroundSize: '500px 400px'
+          backgroundPosition: '-160px 0px'
         };
       case '4': // Abóbora
         return {
           ...baseStyle,
-          backgroundImage: `url(/lovable-uploads/ed8ea89e-8860-4c25-b651-d1ece3956d34.png)`,
-          backgroundPosition: '-310px -180px',
-          backgroundSize: '500px 400px'
+          backgroundPosition: '-240px 0px'
         };
       default:
         return baseStyle;
@@ -138,10 +136,7 @@ const ProfileSelection = () => {
               }`}
             >
               <div className="w-32 h-32 bg-white/90 border-2 border-terror-aqua/30 rounded-2xl flex items-center justify-center overflow-hidden backdrop-blur-sm">
-                <div 
-                  className="w-20 h-20"
-                  style={getAvatarStyle(profile.id)}
-                />
+                <div style={getAvatarStyle(profile.id)} />
               </div>
               <p className="text-white mt-3 font-medium">{profile.name}</p>
             </div>
