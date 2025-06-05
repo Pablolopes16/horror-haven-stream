@@ -9,6 +9,7 @@ import LoginPage from "./pages/Login";
 import ProfileSelectionPage from "./pages/ProfileSelection";
 import RegistrationPage from "./pages/Registration";
 import PlansPage from "./pages/Plans";
+import PasswordResetPage from "./pages/PasswordReset";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -25,6 +26,7 @@ const App = () => (
           <Route path="/registration" element={<RegistrationPage />} />
           <Route path="/profiles" element={<ProfileSelectionPage />} />
           <Route path="/plans" element={<PlansPage />} />
+          <Route path="/password-reset" element={<PasswordResetPage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
