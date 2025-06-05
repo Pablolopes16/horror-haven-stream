@@ -2,6 +2,7 @@
 import React from 'react';
 import Header from '../components/Header';
 import Hero from '../components/Hero';
+import FeaturedMovie from '../components/FeaturedMovie';
 import MovieGrid, { sampleMovies } from '../components/MovieGrid';
 import Categories from '../components/Categories';
 import Footer from '../components/Footer';
@@ -29,6 +30,9 @@ const Index = () => {
 
       {/* Seção hero principal */}
       <Hero />
+
+      {/* Filme em destaque com informações detalhadas */}
+      <FeaturedMovie />
 
       {/* Seção principal de conteúdo */}
       <main className="relative z-10">
