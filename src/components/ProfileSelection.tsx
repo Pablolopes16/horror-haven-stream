@@ -12,27 +12,27 @@ interface UserProfile {
   isKid?: boolean;
 }
 
-// Perfis de exemplo baseados no protótipo
+// Perfis de exemplo com as novas imagens
 const defaultProfiles: UserProfile[] = [
   {
     id: '1',
     name: 'Fantasma',
-    avatar: '/lovable-uploads/18b90af2-24d1-49c9-b277-3a3f360b4ec8.png'
+    avatar: '/lovable-uploads/b80d581a-0a19-4197-a0ca-680018c378e2.png'
   },
   {
     id: '2',
     name: 'Frankenstein',
-    avatar: '/lovable-uploads/18b90af2-24d1-49c9-b277-3a3f360b4ec8.png'
+    avatar: '/lovable-uploads/fdece66c-e67a-48cf-9626-921e83cd17f3.png'
   },
   {
     id: '3',
     name: 'Vampiro',
-    avatar: '/lovable-uploads/18b90af2-24d1-49c9-b277-3a3f360b4ec8.png'
+    avatar: '/lovable-uploads/5c8335b9-f86c-4663-86f6-598509922575.png'
   },
   {
     id: '4',
     name: 'Abóbora',
-    avatar: '/lovable-uploads/18b90af2-24d1-49c9-b277-3a3f360b4ec8.png'
+    avatar: '/lovable-uploads/405d476c-0d89-4123-b819-fb6f2c11ef0e.png'
   }
 ];
 
@@ -62,51 +62,12 @@ const ProfileSelection = () => {
     // Aqui implementaríamos a tela de gerenciamento de perfis
   };
 
-  // Função para extrair avatar específico da imagem baseado no ID
-  const getAvatarStyle = (profileId: string) => {
-    const baseStyle = {
-      width: '80px',
-      height: '80px',
-      backgroundImage: `url(/lovable-uploads/18b90af2-24d1-49c9-b277-3a3f360b4ec8.png)`,
-      backgroundSize: '400px 80px',
-      backgroundRepeat: 'no-repeat'
-    };
-    
-    switch(profileId) {
-      case '1': // Fantasma
-        return {
-          ...baseStyle,
-          backgroundPosition: '0px 0px'
-        };
-      case '2': // Frankenstein  
-        return {
-          ...baseStyle,
-          backgroundPosition: '-80px 0px'
-        };
-      case '3': // Vampiro
-        return {
-          ...baseStyle,
-          backgroundPosition: '-160px 0px'
-        };
-      case '4': // Abóbora
-        return {
-          ...baseStyle,
-          backgroundPosition: '-240px 0px'
-        };
-      default:
-        return baseStyle;
-    }
-  };
-
   return (
-    <div className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      {/* Background com gradiente verde água igual ao login */}
-      <div className="absolute inset-0 bg-gradient-to-br from-terror-darker via-terror-green to-terror-dark">
-        {/* Efeitos atmosféricos */}
-        <div className="absolute inset-0 opacity-30">
-          <div className="absolute top-1/4 left-1/6 w-64 h-64 bg-terror-aqua/20 rounded-full blur-3xl animate-float"></div>
-          <div className="absolute bottom-1/4 right-1/6 w-96 h-96 bg-terror-aqua-light/10 rounded-full blur-3xl animate-float" style={{animationDelay: '2s'}}></div>
-        </div>
+    <div className="min-h-screen flex items-center justify-center relative overflow-hidden bg-terror-aqua-gradient">
+      {/* Efeitos atmosféricos */}
+      <div className="absolute inset-0 opacity-30">
+        <div className="absolute top-1/4 left-1/6 w-64 h-64 bg-terror-aqua/20 rounded-full blur-3xl animate-float"></div>
+        <div className="absolute bottom-1/4 right-1/6 w-96 h-96 bg-terror-aqua-light/10 rounded-full blur-3xl animate-float" style={{animationDelay: '2s'}}></div>
       </div>
 
       {/* Conteúdo principal */}
@@ -136,7 +97,11 @@ const ProfileSelection = () => {
               }`}
             >
               <div className="w-32 h-32 bg-white/90 border-2 border-terror-aqua/30 rounded-2xl flex items-center justify-center overflow-hidden backdrop-blur-sm">
-                <div style={getAvatarStyle(profile.id)} />
+                <img 
+                  src={profile.avatar} 
+                  alt={profile.name}
+                  className="w-20 h-20 object-contain"
+                />
               </div>
               <p className="text-white mt-3 font-medium">{profile.name}</p>
             </div>
