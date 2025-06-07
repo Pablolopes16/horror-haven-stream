@@ -59,9 +59,9 @@
     min-height: 100vh;
   }
 
-  /* Estilos personalizados para atmosfera verde água - intensidade reduzida */
+  /* Estilos personalizados para atmosfera verde água - sem brilhos chamativos */
   .horror-text {
-    text-shadow: 0 0 8px rgba(0, 206, 209, 0.3), 0 0 15px rgba(127, 255, 212, 0.2);
+    color: #00CED1;
   }
 
   .aqua-glow {
@@ -72,10 +72,7 @@
   }
 
   .aqua-text-glow {
-    text-shadow: 
-      0 0 5px #00CED1,
-      0 0 10px #40E0D0,
-      0 0 15px #7FFFD4;
+    color: #00CED1;
   }
 
   .horror-card {
@@ -110,13 +107,10 @@
   }
 }
 
-/* Utilitários personalizados com verde água - intensidade reduzida */
+/* Utilitários personalizados com verde água - sem brilhos chamativos */
 @layer utilities {
   .text-aqua-glow {
     color: #00CED1;
-    text-shadow: 
-      0 0 5px currentColor,
-      0 0 10px #40E0D0;
   }
 
   .bg-terror-aqua-gradient {
