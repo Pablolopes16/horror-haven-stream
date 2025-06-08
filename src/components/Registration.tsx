@@ -7,7 +7,9 @@ import { Label } from './ui/label';
 import { Checkbox } from './ui/checkbox';
 import LogoProcessor from './LogoProcessor';
 
+// Componente principal de cadastro/registro de usuários
 const Registration = () => {
+  // Estado para armazenar todos os dados do formulário de cadastro
   const [formData, setFormData] = useState({
     email: '',
     confirmEmail: '',
@@ -16,10 +18,15 @@ const Registration = () => {
     name: '',
     surname: ''
   });
+  
+  // Estados para controlar a visibilidade das senhas (mostrar/ocultar)
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  
+  // Estado para controlar se o usuário aceitou as políticas de privacidade
   const [acceptPrivacy, setAcceptPrivacy] = useState(false);
 
+  // Função para atualizar os campos do formulário
   const handleInputChange = (field: string, value: string) => {
     setFormData(prev => ({
       ...prev,
@@ -27,51 +34,60 @@ const Registration = () => {
     }));
   };
 
+  // Função para processar o envio do formulário de cadastro
   const handleRegistration = (e: React.FormEvent) => {
-    e.preventDefault();
+    e.preventDefault(); // Previne o comportamento padrão do formulário
+    
+    // Validação: verifica se o usuário aceitou as políticas de privacidade
     if (!acceptPrivacy) {
       alert('Você deve aceitar as políticas de privacidade para continuar.');
       return;
     }
+    
     console.log('Dados de cadastro:', formData);
-    // Aqui implementaríamos a lógica de cadastro real
+    // TODO: Aqui seria implementada a lógica real de cadastro (API, validações, etc.)
   };
 
   return (
+    // Container principal com altura total da tela e centralização
     <div className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      {/* Background com gradiente verde água */}
+      
+      {/* Background com gradiente personalizado e efeitos atmosféricos */}
       <div className="absolute inset-0 bg-gradient-to-br from-terror-darker via-terror-green to-terror-dark">
-        {/* Efeitos atmosféricos */}
+        {/* Efeitos visuais de fundo - círculos com blur para atmosfera */}
         <div className="absolute inset-0 opacity-30">
           <div className="absolute top-1/4 left-1/6 w-64 h-64 bg-terror-aqua/20 rounded-full blur-3xl animate-float"></div>
           <div className="absolute bottom-1/4 right-1/6 w-96 h-96 bg-terror-aqua-light/10 rounded-full blur-3xl animate-float" style={{animationDelay: '2s'}}></div>
         </div>
       </div>
 
-      {/* Conteúdo principal */}
+      {/* Conteúdo principal do formulário */}
       <div className="relative z-10 w-full max-w-md mx-4">
-        {/* Logo no topo */}
+        
+        {/* Seção do logo no topo */}
         <div className="text-center mb-8">
           <div className="h-16 w-auto mx-auto mb-4 flex justify-center">
             <LogoProcessor />
           </div>
         </div>
 
-        {/* Card de cadastro */}
+        {/* Card principal do formulário de cadastro */}
         <div className="bg-terror-aqua/20 backdrop-blur-md border border-terror-aqua/30 rounded-2xl p-8 shadow-2xl">
-          {/* Botão voltar */}
+          
+          {/* Botão para voltar à página anterior */}
           <button className="mb-6 text-terror-aqua hover:text-terror-aqua-light transition-colors">
             <ArrowLeft className="h-6 w-6" />
           </button>
 
-          {/* Título */}
+          {/* Título principal da página */}
           <h2 className="text-3xl font-bold text-white text-center mb-8 aqua-text-glow">
             Crie sua conta
           </h2>
 
-          {/* Formulário */}
+          {/* Formulário de cadastro */}
           <form onSubmit={handleRegistration} className="space-y-4">
-            {/* Campo E-mail */}
+            
+            {/* Campo de entrada para e-mail */}
             <div className="space-y-2">
               <Label htmlFor="email" className="text-white font-medium">
                 E-mail:
@@ -87,7 +103,7 @@ const Registration = () => {
               />
             </div>
 
-            {/* Campo Confirmar E-mail */}
+            {/* Campo para confirmação do e-mail */}
             <div className="space-y-2">
               <Label htmlFor="confirmEmail" className="text-white font-medium">
                 Confirmar E-mail:
@@ -103,7 +119,7 @@ const Registration = () => {
               />
             </div>
 
-            {/* Campo Senha */}
+            {/* Campo de senha com botão para mostrar/ocultar */}
             <div className="space-y-2">
               <Label htmlFor="password" className="text-white font-medium">
                 Senha:
@@ -111,13 +127,14 @@ const Registration = () => {
               <div className="relative">
                 <Input
                   id="password"
-                  type={showPassword ? 'text' : 'password'}
+                  type={showPassword ? 'text' : 'password'} // Alterna entre texto e senha
                   value={formData.password}
                   onChange={(e) => handleInputChange('password', e.target.value)}
                   className="bg-white/90 border-0 text-terror-dark placeholder-gray-500 focus:ring-2 focus:ring-terror-aqua focus:bg-white pr-10"
                   placeholder="Digite sua senha"
                   required
                 />
+                {/* Botão para alternar visibilidade da senha */}
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
@@ -128,7 +145,7 @@ const Registration = () => {
               </div>
             </div>
 
-            {/* Campo Confirmar Senha */}
+            {/* Campo para confirmação da senha */}
             <div className="space-y-2">
               <Label htmlFor="confirmPassword" className="text-white font-medium">
                 Confirmar senha:
@@ -136,13 +153,14 @@ const Registration = () => {
               <div className="relative">
                 <Input
                   id="confirmPassword"
-                  type={showConfirmPassword ? 'text' : 'password'}
+                  type={showConfirmPassword ? 'text' : 'password'} // Alterna entre texto e senha
                   value={formData.confirmPassword}
                   onChange={(e) => handleInputChange('confirmPassword', e.target.value)}
                   className="bg-white/90 border-0 text-terror-dark placeholder-gray-500 focus:ring-2 focus:ring-terror-aqua focus:bg-white pr-10"
                   placeholder="Confirme sua senha"
                   required
                 />
+                {/* Botão para alternar visibilidade da confirmação de senha */}
                 <button
                   type="button"
                   onClick={() => setShowConfirmPassword(!showConfirmPassword)}
@@ -153,7 +171,7 @@ const Registration = () => {
               </div>
             </div>
 
-            {/* Campo Nome */}
+            {/* Campo para o nome do usuário */}
             <div className="space-y-2">
               <Label htmlFor="name" className="text-white font-medium">
                 Nome:
@@ -169,7 +187,7 @@ const Registration = () => {
               />
             </div>
 
-            {/* Campo Sobrenome */}
+            {/* Campo para o sobrenome do usuário */}
             <div className="space-y-2">
               <Label htmlFor="surname" className="text-white font-medium">
                 Sobrenome:
@@ -185,7 +203,7 @@ const Registration = () => {
               />
             </div>
 
-            {/* Checkbox Políticas de Privacidade */}
+            {/* Checkbox para aceitar políticas de privacidade */}
             <div className="flex items-center space-x-3 pt-4">
               <Checkbox
                 id="privacy"
@@ -201,7 +219,7 @@ const Registration = () => {
               </Label>
             </div>
 
-            {/* Botão Criar Conta */}
+            {/* Botão principal para submeter o formulário */}
             <Button
               type="submit"
               className="w-full bg-gradient-to-r from-terror-orange to-terror-orange-dark hover:from-terror-orange-dark hover:to-terror-orange text-white font-bold py-3 text-lg transition-all duration-300 transform hover:scale-105 mt-6"
@@ -210,7 +228,7 @@ const Registration = () => {
             </Button>
           </form>
 
-          {/* Link para login */}
+          {/* Link para redirecionar para a página de login */}
           <div className="mt-6 text-center">
             <p className="text-white">
               Já tem uma conta?{' '}
