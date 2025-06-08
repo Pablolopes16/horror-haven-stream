@@ -1,7 +1,6 @@
 
 // Importações dos componentes de toast e tooltip para feedback ao usuário
 import { Toaster } from "@/components/ui/toaster";
-import { Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 
 // Importações para gerenciamento de estado e roteamento
@@ -26,9 +25,8 @@ const App = () => (
   <QueryClientProvider client={queryClient}>
     {/* Provider para tooltips globais */}
     <TooltipProvider>
-      {/* Componentes de notificação toast */}
+      {/* Componente de notificação toast */}
       <Toaster />
-      <Sonner />
       
       {/* Configuração do roteamento da aplicação */}
       <BrowserRouter>

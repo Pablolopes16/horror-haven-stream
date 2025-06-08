@@ -37,19 +37,24 @@ const defaultProfiles: UserProfile[] = [
 ];
 
 const ProfileSelection = () => {
+  // Estado para gerenciar a lista de perfis disponíveis
   const [profiles] = useState<UserProfile[]>(defaultProfiles);
+  // Estado para controlar qual perfil está selecionado
   const [selectedProfile, setSelectedProfile] = useState<string | null>(null);
 
+  // Função para lidar com a seleção de um perfil
   const handleProfileSelect = (profileId: string) => {
     setSelectedProfile(profileId);
     console.log(`Perfil selecionado: ${profileId}`);
   };
 
+  // Função para criar um novo perfil
   const handleCreateProfile = () => {
     console.log('Criar novo perfil');
     // Aqui implementaríamos a criação de um novo perfil
   };
 
+  // Função para entrar com o perfil selecionado
   const handleEnter = () => {
     if (selectedProfile) {
       console.log(`Entrando com perfil: ${selectedProfile}`);
@@ -57,6 +62,7 @@ const ProfileSelection = () => {
     }
   };
 
+  // Função para gerenciar os perfis existentes
   const handleManageProfiles = () => {
     console.log('Gerenciar perfis');
     // Aqui implementaríamos a tela de gerenciamento de perfis
@@ -64,27 +70,27 @@ const ProfileSelection = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center relative overflow-hidden bg-terror-aqua-gradient">
-      {/* Efeitos atmosféricos */}
+      {/* Efeitos atmosféricos de fundo */}
       <div className="absolute inset-0 opacity-30">
         <div className="absolute top-1/4 left-1/6 w-64 h-64 bg-terror-aqua/20 rounded-full blur-3xl animate-float"></div>
         <div className="absolute bottom-1/4 right-1/6 w-96 h-96 bg-terror-aqua-light/10 rounded-full blur-3xl animate-float" style={{animationDelay: '2s'}}></div>
       </div>
 
-      {/* Conteúdo principal */}
+      {/* Conteúdo principal da página */}
       <div className="relative z-10 w-full max-w-4xl mx-4 text-center">
-        {/* Logo no topo */}
+        {/* Seção do logo no topo */}
         <div className="mb-12">
           <div className="flex justify-center mb-8">
             <LogoProcessor />
           </div>
         </div>
 
-        {/* Título principal */}
+        {/* Título principal da página */}
         <h1 className="text-4xl md:text-5xl font-bold text-white mb-16">
           Quem está assistindo?
         </h1>
 
-        {/* Grid de perfis */}
+        {/* Grid de perfis disponíveis */}
         <div className="flex justify-center items-center gap-8 mb-12 flex-wrap">
           {profiles.map((profile) => (
             <div
@@ -96,13 +102,15 @@ const ProfileSelection = () => {
                   : 'hover:ring-2 hover:ring-terror-aqua rounded-2xl'
               }`}
             >
-              <div className="w-32 h-32 bg-white/90 border-2 border-terror-aqua/30 rounded-2xl flex items-center justify-center overflow-hidden backdrop-blur-sm">
+              {/* Container da imagem do perfil sem bordas brancas */}
+              <div className="w-32 h-32 bg-transparent rounded-2xl flex items-center justify-center overflow-hidden">
                 <img 
                   src={profile.avatar} 
                   alt={profile.name}
                   className="w-20 h-20 object-contain"
                 />
               </div>
+              {/* Nome do perfil */}
               <p className="text-white mt-3 font-medium">{profile.name}</p>
             </div>
           ))}
@@ -119,7 +127,7 @@ const ProfileSelection = () => {
           </div>
         </div>
 
-        {/* Botão Entrar */}
+        {/* Botão para entrar com o perfil selecionado */}
         {selectedProfile && (
           <div className="mb-8">
             <Button
@@ -131,7 +139,7 @@ const ProfileSelection = () => {
           </div>
         )}
 
-        {/* Link Gerenciar Perfis */}
+        {/* Link para gerenciar perfis */}
         <button
           onClick={handleManageProfiles}
           className="text-terror-aqua hover:text-terror-aqua-light transition-colors duration-300 text-lg font-medium underline"
