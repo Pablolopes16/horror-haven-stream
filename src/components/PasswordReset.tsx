@@ -6,6 +6,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useToast } from "@/hooks/use-toast";
+import LogoProcessor from './LogoProcessor';
 
 const PasswordReset = () => {
   const [email, setEmail] = useState('');
@@ -37,58 +38,71 @@ const PasswordReset = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-terror-darker via-terror-dark to-terror-green flex items-center justify-center p-4">
-      {/* Background overlay com efeito de terror */}
-      <div className="absolute inset-0 bg-black/30"></div>
-      
-      <div className="relative z-10 w-full max-w-md">
-        <Card className="bg-terror-aqua/90 backdrop-blur-sm border-terror-aqua/30 shadow-2xl">
-          <CardContent className="p-8">
-            {/* Botão de voltar */}
-            <Link 
-              to="/login" 
-              className="inline-flex items-center text-terror-darker hover:text-terror-green transition-colors mb-6"
+    <div className="min-h-screen flex items-center justify-center relative overflow-hidden">
+      {/* Background com gradiente verde água seguindo o padrão do site */}
+      <div className="absolute inset-0 bg-gradient-to-br from-terror-darker via-terror-green to-terror-dark">
+        {/* Efeitos atmosféricos com verde água */}
+        <div className="absolute inset-0 opacity-30">
+          <div className="absolute top-1/4 left-1/6 w-64 h-64 bg-terror-aqua/20 rounded-full blur-3xl animate-float"></div>
+          <div className="absolute bottom-1/4 right-1/6 w-96 h-96 bg-terror-aqua-light/10 rounded-full blur-3xl animate-float" style={{animationDelay: '2s'}}></div>
+        </div>
+      </div>
+
+      {/* Conteúdo principal */}
+      <div className="relative z-10 w-full max-w-md mx-4">
+        {/* Logo no topo seguindo o padrão do site */}
+        <div className="text-center mb-8">
+          <div className="h-16 w-auto mx-auto mb-4 flex justify-center">
+            <LogoProcessor />
+          </div>
+        </div>
+
+        {/* Card de redefinição de senha com o design padrão */}
+        <div className="bg-terror-aqua/20 backdrop-blur-md border border-terror-aqua/30 rounded-2xl p-8 shadow-2xl">
+          {/* Botão de voltar */}
+          <Link 
+            to="/login" 
+            className="inline-flex items-center text-terror-aqua hover:text-terror-aqua-light transition-colors mb-6"
+          >
+            <ArrowLeft className="h-5 w-5 mr-2" />
+          </Link>
+
+          {/* Título */}
+          <h1 className="text-3xl font-bold text-white text-center mb-8 aqua-text-glow">
+            Redefinir Senha
+          </h1>
+
+          {/* Formulário */}
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div>
+              <label className="block text-white font-medium mb-2">
+                E-mail cadastrado
+              </label>
+              <Input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="bg-white/90 border-0 text-terror-dark placeholder-gray-500 focus:ring-2 focus:ring-terror-aqua focus:bg-white"
+                placeholder="seu@email.com"
+              />
+            </div>
+
+            <Button
+              type="submit"
+              disabled={isLoading}
+              className="w-full bg-gradient-to-r from-terror-orange to-terror-orange-dark hover:from-terror-orange-dark hover:to-terror-orange text-white font-bold py-3 text-lg transition-all duration-300 transform hover:scale-105"
             >
-              <ArrowLeft className="h-5 w-5 mr-2" />
-            </Link>
+              {isLoading ? 'Enviando...' : 'Enviar link'}
+            </Button>
+          </form>
 
-            {/* Título */}
-            <h1 className="text-3xl font-bold text-terror-darker text-center mb-8 font-serif">
-              Redefinir Senha
-            </h1>
-
-            {/* Formulário */}
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label className="block text-terror-darker font-medium mb-2">
-                  E-mail cadastrado
-                </label>
-                <Input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="w-full bg-white/90 border-none text-terror-darker placeholder:text-gray-500 focus:ring-2 focus:ring-terror-green"
-                  placeholder="seu@email.com"
-                />
-              </div>
-
-              <Button
-                type="submit"
-                disabled={isLoading}
-                className="w-full bg-terror-orange hover:bg-terror-orange-dark text-white font-bold py-3 rounded-lg transition-all duration-300 transform hover:scale-105"
-              >
-                {isLoading ? 'Enviando...' : 'Enviar link'}
-              </Button>
-            </form>
-
-            {/* Texto informativo */}
-            <p className="text-center text-terror-darker/80 text-sm mt-6 leading-relaxed">
-              Uma mensagem será enviada para seu e-mail
-              <br />
-              para redefinir senha
-            </p>
-          </CardContent>
-        </Card>
+          {/* Texto informativo */}
+          <p className="text-center text-white/80 text-sm mt-6 leading-relaxed">
+            Uma mensagem será enviada para seu e-mail
+            <br />
+            para redefinir senha
+          </p>
+        </div>
       </div>
     </div>
   );
